@@ -10,7 +10,6 @@ use OCA\Memories\Util;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\PublicPage;
-use OCP\Files\FileInfo;
 use OCP\Files\Folder;
 
 class FoldersController extends GenericApiController
@@ -43,20 +42,17 @@ class FoldersController extends GenericApiController
                 throw Exceptions::BadRequest('Path is not a folder');
             }
 
-            // Ugly: get the view of the folder with reflection
-            // This is unfortunately the only way to get the contents of a folder
-            // matching a MIME type without using SEARCH, which is deep.
-            //
-            // To top it off, all this is completely useless at the moment
-            // because the MIME search is done PHP-side
-            $rp = new \ReflectionProperty(\OC\Files\Node\Node::class, 'view');
-            $rp->setAccessible(true);
-
-            /** @var \OC\Files\View */
-            $view = $rp->getValue($node);
-
-            // Get the subfolders
-            $folders = $view->getDirectoryContent($node->getPath(), FileInfo::MIMETYPE_FOLDER, $node);
+            // In a future NC release, getDirectoryListing() has directly a mimetype filter
+            // See https://github.com/nextcloud/server/commit/9741f5f17d95418178c64a106624f8e525a59e75
+            // This should be possible soon:
+            // use OCP\Files\FileInfo;
+            // $node->getDirectoryListing(FileInfo::MIMETYPE_FOLDER)
+            $folders = [];
+            foreach ($node->getDirectoryListing() as $item) {
+                if ($item instanceof Folder) {
+                    $folders[] = $item;
+                }
+            }
 
             // Sort by name
             usort($folders, static fn ($a, $b) => strnatcmp($a->getName(), $b->getName()));
