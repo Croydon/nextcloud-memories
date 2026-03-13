@@ -58,12 +58,12 @@
         </MissingOverrideAttribute>
         <InvalidReturnType>
             <errorLevel type="suppress">
-                <file name="lib/Service/Binext.php" />
+                <file name="lib/Service/BinExt.php" />
             </errorLevel>
         </InvalidReturnType>
         <InvalidReturnStatement>
             <errorLevel type="suppress">
-                <file name="lib/Service/Binext.php" />
+                <file name="lib/Service/BinExt.php" />
             </errorLevel>
         </InvalidReturnStatement>
         <FalsableReturnStatement>
