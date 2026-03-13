@@ -2,12 +2,12 @@
 
 echo "Setting up Memories development environment..."
 
-# Install dependencies
-make dev-setup
-
 # Fix permissions
 chown -R www-data:www-data /var/www
 git config --global --add safe.directory /var/www/html/custom_apps/memories
+
+# Install dependencies
+make dev-setup
 
 # Install Nextcloud
 sudo -E -u www-data php /var/www/html/occ maintenance:install \
