@@ -23,7 +23,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - name: Checkout the app
         uses: actions/checkout@v6
@@ -75,7 +75,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - uses: actions/download-artifact@v4
         with:
@@ -155,7 +155,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - uses: actions/download-artifact@v4
         with:
@@ -221,7 +221,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - uses: actions/download-artifact@v4
         with:
