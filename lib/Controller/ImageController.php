@@ -117,10 +117,7 @@ class ImageController extends GenericApiController
             $previewManager = \OC::$server->get(\OCP\IPreview::class);
 
             // For checking max previews
-            $previewRoot = new \OC\Preview\Storage\Root(
-                \OC::$server->get(IRootFolder::class),
-                \OC::$server->get(\OC\SystemConfig::class),
-            );
+            $previewRoot = \OC::$server->get(\OCP\Files\AppData\IAppDataFactory::class)->get('preview');
 
             // stream the response
             $out->setHeader('Content-Type: application/octet-stream');
@@ -510,10 +507,7 @@ class ImageController extends GenericApiController
     private function refreshPreviews(\OCP\Files\File $file): void
     {
         try {
-            $previewRoot = new \OC\Preview\Storage\Root(
-                \OC::$server->get(IRootFolder::class),
-                \OC::$server->get(\OC\SystemConfig::class),
-            );
+            $previewRoot = \OC::$server->get(\OCP\Files\AppData\IAppDataFactory::class)->get('preview');
 
             // Delete the preview folder
             $fileId = (string) $file->getId();
