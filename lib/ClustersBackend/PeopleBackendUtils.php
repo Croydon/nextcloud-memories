@@ -91,9 +91,9 @@ trait PeopleBackendUtils
      *
      * @return string[] [Blob, mimetype] of resulting image
      *
-     * @throws \Exception if file could not be used
-     *
      * @psalm-return list{string, string}
+     *
+     * @throws \Exception if file could not be used
      */
     private function cropFace(ISimpleFile $file, array $photo, float $padding): array
     {
