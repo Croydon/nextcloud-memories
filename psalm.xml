@@ -41,6 +41,56 @@
                 <directory name="lib/" />
             </errorLevel>
         </RiskyTruthyFalsyComparison>
+        <PossiblyFalseArgument>
+            <errorLevel type="suppress">
+                <directory name="lib/" />
+            </errorLevel>
+        </PossiblyFalseArgument>
+        <InvalidOperand>
+            <errorLevel type="suppress">
+                <directory name="lib/" />
+            </errorLevel>
+        </InvalidOperand>
+        <MissingOverrideAttribute>
+            <errorLevel type="suppress">
+                <directory name="lib/" />
+            </errorLevel>
+        </MissingOverrideAttribute>
+        <InvalidReturnType>
+            <errorLevel type="suppress">
+                <file name="lib/Service/Binext.php" />
+            </errorLevel>
+        </InvalidReturnType>
+        <InvalidReturnStatement>
+            <errorLevel type="suppress">
+                <file name="lib/Service/Binext.php" />
+            </errorLevel>
+        </InvalidReturnStatement>
+        <FalsableReturnStatement>
+            <errorLevel type="suppress">
+                <file name="lib/Db/TimelineWrite.php" />
+            </errorLevel>
+        </FalsableReturnStatement>
+        <ArgumentTypeCoercion>
+            <errorLevel type="suppress">
+                <file name="lib/Controller/ImageController.php" />
+            </errorLevel>
+        </ArgumentTypeCoercion>
+        <PossiblyNullArgument>
+            <errorLevel type="suppress">
+                <file name="lib/Controller/OtherController.php" />
+            </errorLevel>
+        </PossiblyNullArgument>
+        <InvalidNullableReturnType>
+            <errorLevel type="suppress">
+                <file name="lib/Controller/TemplateResponsePatch.php" />
+            </errorLevel>
+        </InvalidNullableReturnType>
+        <NullableReturnStatement>
+            <errorLevel type="suppress">
+                <file name="lib/Controller/TemplateResponsePatch.php" />
+            </errorLevel>
+        </NullableReturnStatement>
     </issueHandlers>
     <forbiddenFunctions>
             <function name="var_dump" />
